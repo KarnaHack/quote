@@ -1,0 +1,135 @@
+:root{
+    --base-clr: #E0E6E9;
+    --line-clr:#363849;
+    --hover-clr:#2C6975;
+    --text-clr:#e6e6ef;
+    --accent-clr:#5e63ff;
+    --secondary-text-clr:#242424;
+}
+
+*{
+    margin: 0;
+    padding: 0;    
+    box-sizing: border-box;
+}
+
+html{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.5rem;
+}
+
+body{
+    padding: 20px;
+    width: 100vw;
+    background-color: var(--base-clr);
+    color: var(--secondary-text-clr);
+    display: grid;
+    grid-template-rows: auto 1fr;
+  
+
+    
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+
+.book{
+    height: fit-content;
+    border: 1px solid var(--line-clr);
+    border-radius: 1rem;
+    margin-bottom:20px;
+    padding: min(3em,15%);
+    
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2em;
+    
+}
+
+.book .book-img{
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+
+    img{
+        width: 250px;
+        height: auto;
+    }
+
+    .buttons{
+        margin-top: 1em;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        button{
+            width: 3.5em;
+            height: 2em;
+            border: none;
+            border-radius: 15%;
+            font-size: large;
+
+            svg{
+                align-self: center;
+                height: auto;
+                width: 1.7em;
+            }
+
+        }
+
+        button:hover{
+            background-color: var(--hover-clr);
+            color: var(--text-clr);
+
+            svg{
+                fill: var(--text-clr);
+               
+            }
+        }
+
+        a{
+            background-color: #ffffff;
+            height: 2em;
+            width: 3.5em;
+            text-decoration: none;
+            color: var(--secondary-text-clr);
+            border: none;
+            border-radius: 15%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: large ;
+        }
+
+        a:hover{
+            background-color: var(--hover-clr);
+            color: azure;
+        }
+
+    }
+}
+
+.reviews-section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    
+    .user{
+        width: fit-content;
+        gap: .5em;
+        display: flex;
+        justify-content: center;
+    }
+    .user img{
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+
+    }
+
+
+}
