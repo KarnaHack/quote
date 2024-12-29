@@ -23,6 +23,10 @@ def home():
 def home_real():
     return render_template('home_page.html')
 
+@app.route('/book')
+def book():
+    return render_template('book-display.html')  
+
     
 @app.route('/signup', methods=['POST', 'GET'])
 def signup():
@@ -82,9 +86,7 @@ def signin():
         return jsonify({"success": False, "message": "Request must be JSON and Content-Type must be 'application/json'."})
 
 
-@app.route('/book')
-def book():
-    return render_template('book-display.html')
+
     
 if __name__ == '__main__':
     app.run(debug=True)
