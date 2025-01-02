@@ -30,3 +30,5 @@ function closeAllSubmenu(){
         ul.previousElementSibling.classList.remove('rotate')
     })
 }
+
+

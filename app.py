@@ -21,6 +21,10 @@ def home():
 
 @app.route('/home_real')
 def home_real():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT image_url, title, summary FROM books")
+    books = cur.fetchall()
+    cur.close()
     return render_template('home_page.html')
 
 @app.route('/book')
@@ -31,7 +35,7 @@ def book():
 @app.route('/signup', methods=['POST', 'GET'])
 def signup():
     if request.method == 'GET':
-        return render_template('signup_page.html')  # Render your HTML signup page
+        return render_template('login_page.html')  # Render your HTML signup page
 
     data = request.get_json()
     name = data['name']
@@ -61,7 +65,7 @@ def signup():
 @app.route('/signin', methods=['POST', 'GET'])
 def signin():
     if request.method == 'GET':
-        return render_template('signin_page.html')  # Render your HTML signin page
+        return render_template('login_page.html')  # Render your HTML signin page
 
     if request.content_type == 'application/json':
         data = request.get_json()
