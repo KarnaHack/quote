@@ -66,16 +66,13 @@ body::-webkit-scrollbar{
         justify-content: space-between;
 
         button{
-            width: 3.5em;
-            height: 2em;
-            border: none;
-            border-radius: 15%;
-            font-size: large;
+
 
             svg{
                 align-self: center;
                 height: auto;
                 width: 1.7em;
+                fill: var(--text-clr);
             }
 
         }
@@ -91,11 +88,10 @@ body::-webkit-scrollbar{
         }
 
         a{
-            background-color: #ffffff;
-            height: 2em;
-            width: 3.5em;
+        
+        
             text-decoration: none;
-            color: var(--secondary-text-clr);
+            color: #E0E6E9;
             border: none;
             border-radius: 15%;
             display: flex;
