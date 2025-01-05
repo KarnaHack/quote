@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>{{book[1]}}</title>
     <link rel="stylesheet" href="../static/css/book-display.css">
 </head>
 <body>
     <div class="book">
         <div class="book-img">
-            <img src="../static/images/book_cover/Harry Potter and the Sorcerer's Stone.jpg" alt="">
+            <img src="{{book[3]}}" alt="">
             <div class="buttons">
                 <button>like</button>
-                <a id="read-link" href="../static/book_pdf/Harry Potter and the Sorcerer's Stone.pdf">Read</a>
+                <a id="read-link" href="{{book[4]}}">Read</a>
                 <button>
                     <?xml version="1.0" encoding="UTF-8"?>
                     <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 24 24">
@@ -25,10 +25,8 @@
         </div>
         
         <div class="book-summary">
-            <h2 class="book-tile">Harry Potter and the Sorcerer's Stone</h2><br>
-            <p class="summary">Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur dolore, numquam, quibusdam quod consectetur harum tempora veniam vero cum placeat non atque similique! Et illo optio expedita suscipit neque labore.
-            Quas modi est soluta labore cum nihil, sunt vero impedit beatae. Eius, eaque ipsam. Totam veniam quia ipsam laborum saepe optio error, incidunt molestiae suscipit dolores est, repellat numquam ipsum.
-            Nisi, temporibus. Repellendus qui ducimus adipisci tempore dolores, sunt, sequi corrupti provident officiis soluta voluptatibus. Architecto natus, nihil, eaque ab atque perspiciatis fuga est vel, quis illo nesciunt ipsa facere!</p>
+            <h2 class="book-title">{{book[1]}}</h2><br>
+            <p class="summary">{{book[2]}}</p>
         </div>
     </div>
     <div class="reviews-section">

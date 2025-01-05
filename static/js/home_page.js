@@ -32,3 +32,17 @@ function closeAllSubmenu(){
 }
 
 
+document.addEventListener("DOMContentLoaded", ()=> {
+    const container = document.getElementById("display");
+
+    fetch("/book/api").then((response)=> response.json()).then((data)=>{ data.forEach((item)=>{
+        const disp_img = document.createElement("swiper-slide");
+        disp_img.className = "book-img";
+
+        disp_img.innerHTML = `<div class="book-img"><img src="${item.image_url}" alt="${item.title}" loading="lazy"></div>
+        <div class="bookcontent"><h2 class="book-title">${item.title}</h2><br> <p>${item.summary}</p><a href="${item.book_url}">Read more</a></div>`;
+        container.appendChild(disp_img);
+     });
+    })
+    .catch((error)=> console.error("Error loading books", error));
+});

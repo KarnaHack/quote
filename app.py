@@ -17,19 +17,35 @@ mysql = MySQL(app)
 @app.route('/')
 def home():
     return render_template('login_page.html')
-      # Render your HTML login/signup page
+    # Render your HTML login/signup page
 
 @app.route('/home_real')
 def home_real():
-    cur = mysql.connection.cursor()
-    cur.execute("SELECT image_url, title, summary FROM books")
-    books = cur.fetchall()
-    cur.close()
+    
     return render_template('home_page.html')
 
-@app.route('/book')
-def book():
-    return render_template('book-display.html')  
+@app.route("/book/api")
+def api_book():
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT id,image_url, title, summary FROM books")
+    books = cur.fetchall()
+    cur.close()
+
+    data = [
+        {"id": row[0],"image_url": row[1], "title": row[2], "summary": row[3], "book_url": url_for('book', book_id=row[0])  }
+        for row in books
+    ]
+    return jsonify(data)
+
+
+@app.route('/book/<int:book_id>')
+def book(book_id):
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM books where id = %s", (book_id,))
+    book = cur.fetchone()
+    cur.close()
+
+    return render_template('book-display.html', book=book)  
 
     
 @app.route('/signup', methods=['POST', 'GET'])
@@ -88,8 +104,6 @@ def signin():
             return jsonify({"success": False, "message": "Invalid email or password."})
     else:
         return jsonify({"success": False, "message": "Request must be JSON and Content-Type must be 'application/json'."})
-
-
 
     
 if __name__ == '__main__':
