@@ -27,7 +27,7 @@ def home_real():
 @app.route("/book/api")
 def api_book():
     cur = mysql.connection.cursor()
-    cur.execute("SELECT id,image_url, title, summary FROM books")
+    cur.execute("SELECT book_id,image_url, title, summary FROM books")
     books = cur.fetchall()
     cur.close()
 
@@ -36,15 +36,20 @@ def api_book():
         for row in books
     ]
     return jsonify(data)
+    
+        
 
 
-@app.route('/book/<int:book_id>')
+    
+@app.route('/book/<int:book_id>,',methods=['POST', 'GET'])
 def book(book_id):
     cur = mysql.connection.cursor()
-    cur.execute("SELECT * FROM books where id = %s", (book_id,))
+    cur.execute("SELECT * FROM books where book_id = %s", (book_id,))
     book = cur.fetchone()
     cur.close()
-
+    
+    
+        
     return render_template('book-display.html', book=book)  
 
     
@@ -97,7 +102,10 @@ def signin():
 
         if user and bcrypt.check_password_hash(user[0], password):
             print("User authenticated successfully")
-            session['user'] = email  # Set session variable
+            cur = mysql.connection.cursor()
+            cur.execute("SELECT user_id FROM users WHERE email = %s", (email,))
+            user_id = cur.fetchone()
+            session['user_id'] =  user_id # Set session variabl
             return jsonify({"success": True, "redirect": url_for('home_real')})
         else:
             print("Invalid email or password")

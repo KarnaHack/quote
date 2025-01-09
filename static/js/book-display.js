@@ -5,3 +5,5 @@ document.addEventListener('DOMContentLoaded', function() {
         window.open(readLink.href, '_blank');
     });
 });
+
+ 

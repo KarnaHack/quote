@@ -31,10 +31,15 @@
         <div class="book-summary">
             <h2 class="book-title">{{book[1]}}</h2><br>
             <p class="summary">{{book[2]}}</p>
-        </div>
+        </div>   
     </div>
     <div class="reviews-section">
         <h2>Review</h2>
+        <br>
+        <form action="/book">
+            <textarea name="comment" itemid="comment" class="comment" placeholder="Add comment for {{book[1]}}" id=""></textarea>
+            <button type="submit">POST</button>
+        </form>
 
         <div class="user">
             <img src="../static/images/User-dp/sonia.jpg" alt="">

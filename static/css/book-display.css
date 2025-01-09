@@ -113,9 +113,25 @@ body::-webkit-scrollbar{
     display: flex;
     flex-direction: column;
     row-gap: 1em;
+
+    form{
+        display: flex;
+        button{
+            width: 15%;
+        }
+        textarea{
+            padding: 10px;
+            width: 85%;
+            resize: vertical;
+            overflow: hidden;
+            border: none;
+            box-shadow: var(--secondary-text-clr);
+            background-color: var(--text-clr);
+        }
+    }
     
     .user{
-        width: fit-content;
+        width: max-content;
         gap: .5em;
         display: flex;
         justify-content: center;
