@@ -1,0 +1,28 @@
+digraph ER_Diagram {
+	rankdir=LR size="8,5"
+	Books [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+<TR><TD COLSPAN="2"><B>Books</B></TD></TR>
+<TR><TD>id</TD><TD>PK</TD></TR>
+<TR><TD>title</TD><TD></TD></TR>
+<TR><TD>summary</TD><TD></TD></TR>
+<TR><TD>image_url</TD><TD></TD></TR>
+<TR><TD>pdf_url</TD><TD></TD></TR>
+</TABLE>> shape=none]
+	Users [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+<TR><TD COLSPAN="2"><B>Users</B></TD></TR>
+<TR><TD>id</TD><TD>PK</TD></TR>
+<TR><TD>name</TD><TD></TD></TR>
+<TR><TD>email</TD><TD></TD></TR>
+<TR><TD>password</TD><TD></TD></TR>
+<TR><TD>created_at</TD><TD></TD></TR>
+</TABLE>> shape=none]
+	Reviews [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0">
+<TR><TD COLSPAN="2"><B>Reviews</B></TD></TR>
+<TR><TD>review_id</TD><TD>PK</TD></TR>
+<TR><TD>user_id</TD><TD>FK</TD></TR>
+<TR><TD>book_id</TD><TD>FK</TD></TR>
+<TR><TD>comment</TD><TD></TD></TR>
+</TABLE>> shape=none]
+	Users -> Reviews [label=writes]
+	Books -> Reviews [label=has]
+}

@@ -1,7 +1,7 @@
 USE quote_db;
 
 CREATE TABLE books(
-    id INT primary key Auto increment,
+    book_id INT primary key Auto increment,
     title varchar(255),
     summary text,
     image_url varchar(255),
